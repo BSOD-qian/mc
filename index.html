@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>地铁计算器</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/spacingjs" defer></script>
+</head>
+
+<body>
+
+  <div class="container-fluid p-5 bg-primary text-white text-center">
+    <h1>地铁计算器<sup><span class="badge bg-secondary">BETA</span></sup></h1>
+    <p><span id="ua"></span>,20220318</p>
+  </div>
+
+  <div class="container mt-5">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="🔍搜索" id="input">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit" onclick="search();">搜索</button>
+      </div>
+    </div>
+    <p>车号:<span id="num">N/A</span></p>
+    <p>线路:<span id="line">N/A</span></p>
+    <p>特殊性:<span id="sp">N/A</span></p>
+    <p>上线:<span id="on">N/A</span></p>
+    <p>车型:<span id="type">N/A</span></p>
+    <p>本条数据由<span id="con">N/A</span>贡献!</p>
+  </div>
+  <script>
+    function search(){
+      const bnum = document.getElementById("input").value
+      fetch('./train/' + bnum + '.json')
+        .then(response => response.json())
+        .then(data => {
+          const num = document.getElementById('num')
+          const line = document.getElementById('line')
+          const sp = document.getElementById('sp')
+          const on = document.getElementById('on')
+          const type = document.getElementById('type')
+          const con = document.getElementById('con')
+          num.innerText = data.num
+          line.innerText = data.line
+          sp.innerText = data.sp
+          on.innerHTML = data.on
+          type.innerHTML = data.type
+          con.innerHTML = data.c
+        })
+        .catch(num.innerHTML = "输入有误,请检查")
+    }
+    var ua = navigator.userAgent;
+    document.getElementById('ua').innerHTML = ua;
+  </script>
+
+</body>
+
+</html>
