@@ -14,7 +14,7 @@
 
   <div class="container-fluid p-5 bg-primary text-white text-center">
     <h1>地铁计算器<sup><span class="badge bg-secondary">BETA</span></sup></h1>
-    <p><span id="ua"></span>,20220318</p>
+    <p>最后更新：2022年3月8日</p>
   </div>
 
   <div class="container mt-5">
@@ -29,8 +29,9 @@
     <p>特殊性:<span id="sp">N/A</span></p>
     <p>上线:<span id="on">N/A</span></p>
     <p>车型:<span id="type">N/A</span></p>
-    <p>本条数据由<span id="con">N/A</span>贡献!</p>
+    <!--<p>本条数据由<span id="con">N/A</span>贡献!</p>-->
   </div>
+  <p style="text-align: center;">友情链接：<a href="http://www.shmetro.com/" target="_blank">上海地铁官网</a> <a href="https://tieba.baidu.com/f?kw=%E4%B8%8A%E6%B5%B7%E5%9C%B0%E9%93%81&fr=index" target="_blank">上海地铁吧</a> <a href="https://wongchito.github.io/RailMapGenerator/shmetro" target="_blank">铁路线路图生成器(V3)</a> <a href="https://incimathcal.gitee.io/shmetrodl/#" target="_blank">上海轨道交通资料下载站</a></p>
   <script>
     function search(){
       const bnum = document.getElementById("input").value
@@ -52,8 +53,6 @@
         })
         .catch(num.innerHTML = "输入有误,请检查")
     }
-    var ua = navigator.userAgent;
-    document.getElementById('ua').innerHTML = ua;
   </script>
 
 </body>
