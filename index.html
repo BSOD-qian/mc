@@ -14,7 +14,7 @@
 
   <div class="container-fluid p-5 bg-primary text-white text-center">
     <h1>地铁计算器<sup><span class="badge bg-secondary">BETA</span></sup></h1>
-    <p>最后更新：2022年3月8日</p>
+    <p>最后更新：2022年3月28日</p>
   </div>
 
   <div class="container mt-5">
@@ -35,7 +35,7 @@
   <script>
     function search(){
       const bnum = document.getElementById("input").value
-      fetch('./train/' + bnum + '.json')
+      fetch('https://bsod-qian.github.io/train_module/' + bnum + '.json')
         .then(response => response.json())
         .then(data => {
           const num = document.getElementById('num')
@@ -51,7 +51,7 @@
           type.innerHTML = data.type
           con.innerHTML = data.c
         })
-        .catch(num.innerHTML = "输入有误,请检查")
+        .catch(num.innerHTML = "请稍侯，若长时间未出结果请检查输入是否正确")
     }
   </script>
 
